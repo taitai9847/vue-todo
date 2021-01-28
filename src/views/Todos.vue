@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-unused-vars */
 <template>
   <v-container text-xs-center justify-center>
     <v-layout row wrap>
@@ -12,7 +13,12 @@
         </router-link>
       </v-flex>
       <v-flex xs12 mt-3 justify-center>
-        <v-data-table :headers='headers' :items="todos">
+        <v-data-table :headers='headers' :items='todos'>
+          <template v-slot:[`item.delete`]="{ item }">
+            <span>
+              <v-icon small class="mr-2" @click="deleteTodo(item)">mdi-delete</v-icon>
+            </span>
+          </template>
         </v-data-table>
       </v-flex>
     </v-layout>
@@ -20,6 +26,7 @@
 </template>
 
 <script lang="ts">
+import { mapActions} from 'vuex'
 export default {
   created() {
     this.todos = this.$store.state.todos
@@ -28,12 +35,16 @@ export default {
     return {
       headers: [
         { text: 'Todos', align: 'start', value: 'title', sortable: false},
-        { text: 'Done', align: 'start', value: 'text', sortable: false}
+        { text: 'Remarks', value: 'text', sortable: false},
+        { text: 'Delete', value: 'delete', sortable: false}
       ],
       todos: []
     }
   },
   methods: {
+    deleteTodo(item: any) {
+      console.log("delete!", item)
+    }
   }
 };
 </script>

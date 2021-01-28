@@ -8,13 +8,14 @@ export default new Vuex.Store({
     todos: [] as any
   },
   mutations: {
-    addTodo(state, todo) {
+    addTodo(state, { id, todo }) {
+      todo.id = id
       state.todos.push(todo)
     }
   },
   actions: {
     addTodo({ commit }, todo) {
-      commit('addTodo', todo)
+      commit('addTodo', { id: todo.id, todo })
     }
   },
   modules: {
