@@ -1,8 +1,13 @@
 <template>
   <v-app>
-    <SideNav />
-    <v-main>
-    </v-main>
+    <v-row>
+      <SideNav />
+      <v-main>
+        <v-container fluid fill-height align-start>
+          <router-view/>
+        </v-container>
+      </v-main>
+    </v-row>
   </v-app>
 </template>
 

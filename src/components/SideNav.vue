@@ -44,9 +44,9 @@
     data () {
       return {
         items: [
-          { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-          { title: 'Photos', icon: 'mdi-image' },
-          { title: 'About', icon: 'mdi-help-box' },
+          { title: 'Todo', icon: 'mdi-view-dashboard' },
+          { title: 'Memo', icon: 'mdi-image' },
+          { title: 'Article', icon: 'mdi-help-box' },
         ],
         right: null,
       }
