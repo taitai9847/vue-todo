@@ -4,6 +4,8 @@
     width="256"
   >
     <v-navigation-drawer permanent>
+      <v-flex xs12 mt-6>
+      </v-flex>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title">
@@ -25,6 +27,7 @@
           v-for="item in items"
           :key="item.title"
           link
+          :href="item.router"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -44,9 +47,9 @@
     data () {
       return {
         items: [
-          { title: 'Todo', icon: 'mdi-view-dashboard' },
-          { title: 'Memo', icon: 'mdi-image' },
-          { title: 'Article', icon: 'mdi-help-box' },
+          { title: 'Todo', icon: 'mdi-view-dashboard', router: 'todos' },
+          { title: 'Memo', icon: 'mdi-image', router: 'about'},
+          { title: 'Article', icon: 'mdi-help-box', router: 'home' }
         ],
         right: null,
       }

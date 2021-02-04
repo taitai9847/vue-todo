@@ -1,6 +1,8 @@
 <template>
   <v-container text-xs-center>
     <v-layout row wrap justify-center>
+      <v-flex xs12 mt-6>
+      </v-flex>
       <v-flex xs12>
         <h1>TodoForm</h1>
       </v-flex>
@@ -24,7 +26,6 @@
 
 <script>
 import { mapActions } from 'vuex'
-
 export default {
     data() {
         return {
@@ -34,8 +35,6 @@ export default {
     methods: {
         submit() {
             this.addTodo(this.todo)
-            console.log(this.todo)
-            console.log("ok!")
             this.todo = []
             this.$router.push({ name: 'todo' })
         },

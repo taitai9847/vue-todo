@@ -2,6 +2,8 @@
 <template>
   <v-container text-xs-center justify-center>
     <v-layout row wrap>
+      <v-flex xs12 mt-6>
+      </v-flex>
       <v-flex xs12>
         <h1>Todos</h1>
       </v-flex>
@@ -16,7 +18,7 @@
         <v-data-table :headers='headers' :items='todos'>
           <template v-slot:[`item.delete`]="{ item }">
             <span>
-              <v-icon small class="mr-2" @click="deleteTodo(item)">mdi-delete</v-icon>
+              <v-icon small class="mr-2" @click="deleteTodo(item.id)">mdi-delete</v-icon>
             </span>
           </template>
         </v-data-table>
@@ -42,10 +44,15 @@ export default {
     }
   },
   methods: {
-    deleteTodo(item: any) {
-      console.log("delete!", item)
+    deleteTodo(id: number) {
+      console.log("delete!", id)
+      this.deleteTodo(id)
+    },
+    hoge() {
+      console.log(this.todos)
     }
-  }
+  },
+  ...mapActions(['deleteTodo'])
 };
 </script>
 
