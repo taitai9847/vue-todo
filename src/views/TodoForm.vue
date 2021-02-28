@@ -10,8 +10,8 @@
         <v-card>
           <v-card-text>
             <v-form>
-               <v-text-field v-model="todo.title" label="内容"></v-text-field>
-               <v-text-field v-model="todo.text" label="備考"></v-text-field>
+               <v-text-field v-model="todo.title" label="タイトル"></v-text-field>
+               <v-text-field v-model="todo.text" label="内容"></v-text-field>
                <v-layout row wrap justify-center>
                    <v-btn @click="$router.push({ name: 'todo' })">キャンセル</v-btn>
                    <v-btn color="info" @click="submit">保存</v-btn>
@@ -27,18 +27,18 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
-    data() {
-        return {
-            todo: {}
-        }
-    },
-    methods: {
-        submit() {
-            this.addTodo(this.todo)
-            this.todo = []
-            this.$router.push({ name: 'todo' })
-        },
-        ...mapActions(['addTodo'])
+  data() {
+    return {
+      todo: {},
     }
+  },
+  methods: {
+    submit() {
+      this.addTodo(this.todo) 
+      this.todo = []
+      this.$router.push({ name: 'todo' })
+    },
+    ...mapActions(['addTodo'])
+  }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    hoge
+    HOGE
   </div>
 </template>
 
